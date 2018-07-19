@@ -12,4 +12,10 @@ const argv = yargs.options({
 .alias('help', 'h')
 .argv;
 
-geocode.geocodeAddress(argv.a);
+geocode.geocodeAddress(argv.a, (err, results) => {
+  if (err) {
+    console.log('Error: ', err);
+  } else {
+    console.log(JSON.stringify(results, undefined, 2));
+  }
+});
